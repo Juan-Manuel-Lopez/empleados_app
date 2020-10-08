@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "empleados_app/base.html" %}
+{% block body_block %}
+      <h1> CAPTURA DE DATOS</h1>
+      <h4> Ingrese los datos del Empleado</h4>
+      <form  method="post"  >
+        <div class="">
+          {{form.as_p  }}
+          {% csrf_token %}
+        </div>
+        <input type="submit"  class="btn btn-success" value="Submit">
+      </form>
+{% endblock %}

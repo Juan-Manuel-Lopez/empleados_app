@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends "empleados_app/base.html" %}
+{% load my_extras %}
+
+  {% block body_block %}
+    <div class="jumbotron">
+
+    <h1>{{headerpage|cut_jm:'leado'}}</h1>
+  </div>
+    {% if user.is_authenticated %}
+    <div class="djangoTable">
+      {% if empleados %}
+        <table class="table table-hover">
+          <thead>
+            <th>NOMBRE</th>
+            <th>APELLIDO PATERNO</th>
+            <th>APELLIDO MATERNO</th>
+            <th>TELEFONO</th>
+            <th>DEPARTAMENTO</th>
+          </thead>
+            {% for emp in empleados %}
+            <tr>
+              <td>{{emp.NOMBRE}}</td>
+              <td>{{emp.AP_PATERNO}}</td>
+              <td>{{emp.AP_MATERNO}}</td>
+              <td>{{emp.TELEFONO}}</td>
+              <td>{{emp.DEPARTAMENTO}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+      {% else %}
+      <p>NO RECORDS FOUND</p>
+      {% endif %}
+    </div>
+    <a href="{% url 'emp_app:alta_emp' %}">Crear nuevo empleado</a>
+
+    {% else %}
+    <h1>Nececita conectarse para poder ver los resultados</h1>
+    {% endif %}
+    {% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WELCOME</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="jumbotron">
+
+    <h1>LISTA DE EMPLEADOS</h1>
+  </div>
+
+    <div class="djangoTable">
+      {% if empleados %}
+        <table class="table table-hover">
+          <thead>
+            <th>NOMBRE</th>
+            <th>APELLIDO PATERNO</th>
+            <th>APELLIDO MATERNO</th>
+            <th>TELEFONO</th>
+            <th>DEPARTAMENTOX</th>
+          </thead>
+            {% for emp in empleados %}
+            <tr>
+              <td>{{emp.NOMBRE}}</td>
+              <td>{{emp.AP_PATERNO}}</td>
+              <td>{{emp.AP_MATERNO}}</td>
+              <td>{{emp.TELEFONO}}</td>
+              <td>{{emp.DEPARTAMENTO}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+      {% else %}
+      <p>NO RECORDS FOUND</p>
+      {% endif %}
+    </div>
+    <a href="{% url 'emp_app:xyz' %}">Crear nuevo usuario</a>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ACCESO A LA BASE DE DATOS EMPLEADOS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class=" ">
+    <div class="">
+      <h1> CAPTURA DE DATOSX</h1>
+      <h4> Ingrese los datos del Empleado</h4>
+      <form  method="post"  >
+        <div class="">
+          {{form.as_p  }}
+          {% csrf_token %}
+        </div>
+        <input type="submit"  class="btn btn-success" value="Submit">
+      </form>
+    </div>
+    </div>
+
+
+  </body>
+</html>
